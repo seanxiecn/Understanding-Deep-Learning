@@ -50,8 +50,7 @@ c) This audio transcription model maps an audio sample to a transcription ofthe 
 
 d) This translation model maps an English textstring to its French translation.
 
-e) This image synthesis model maps a caption toan image (example from https://openai.com/dall-e-2/). In each case, the outputhas a complex internal structure or grammar. In some cases, many outputs arecompatible with the input. 
-
+e) This image synthesis model maps a caption toan image (example from https://openai.com/dall-e-2/). In each case, the outputhas a complex internal structure or grammar. In some cases, many outputs arecompatible with the input.
 
 #### 2. Unsupervised Learning
 
@@ -92,6 +91,19 @@ Given an initial body of text (in black),generative models of text can continue 
 
 * Some (but not all) generative models exploit the observation that data can be lowerdimensional than the raw number of observed variables suggests, which leads to new methods to manipulating data
 * We can describe each data example using a smaller number of underlying latent variables.
-* The latent variables typically have a simple probability distribution by design
+* The latent variables typically have a simple probability distribution by design, By sampling from this distribution and passing theresult through the deep learning model, we can create new samples
 
 ![1701065904821](image/Chap1Introduction/1701065904821.png)
+
+##### 2.4 Connecting supervised and unsupervised models
+
+* Generative models with latent variables can benefit supervised learning models where the outputs have structure
+* Rather than directly map the inputs to outputs, we can learn a relation between latent variables that explain the inputs and the ones explain the outputs.
+* 3 advantages:
+  1. Fewer data since the input/output pairs are lower dimensional
+  2. More Plausible outputs due to sensible values of latent variables
+  3. Introducing randomness to either the mapping between the two sets of latent variables or the mapping from the latent variables to the outputs, then we can generate multiple outputs that are all matching well with the outputs
+
+#### 3. Reinforcement Learning
+
+* This paradigm introduces the idea of an agent which lives in a world and can perform certain actions at each timestep

@@ -106,4 +106,19 @@ Given an initial body of text (in black),generative models of text can continue 
 
 #### 3. Reinforcement Learning
 
-* This paradigm introduces the idea of an agent which lives in a world and can perform certain actions at each timestep
+##### 3.1 Defination
+
+* This paradigm introduces the idea of an agent which lives in a world and can perform certain actions at each time step
+* Actions changes the state of the system/agent but may not in a deterministic way and the actions takes rewards
+* The goal is to maximize the reward on average by the agent learnning to choose the actions
+* One complication is ***temporal credit assignment problem*** , which means there are lags between taking action and the results of it. Thus the agent must trade off ***exploration*** and ***exploitation***, trying new actions to "explore" or follow the current strategy to "exploit"
+
+##### 3.2 Two Examples
+
+* Teaching a humanoid robot to locomote; Learning to play chess.
+* In the Play Chess case, the temporal credit assignment problem is extreme; the system must learn which of themany moves it made were instrumental to success or failure.
+* There several approches to implement reinforcement learning with deep learning, one technique is to use deep networks to build a mapping from the observed world state to an action,. which is known as a ***policy network***.
+
+![1701245970316](image/Chap1Introduction/1701245970316.png)
+
+One way to incorporate deep neural networks into reinforcement learning is to use them to define a map-ping from the state (here position on chessboard) to the actions (possible moves).This mapping is known as apolicy. Adapted from Pablok (2017)
